@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import InputComponent from './components/InputComponent'
+import OutputComponent from './components/OutputComponent'
+import InfoComponent from './components/InfoComponent'
 
 function App() {
+  const [text, setUpdatedText] = useState('')
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" style={{ margin: '0 50px' }}>
+      <InfoComponent />
+      <InputComponent onUpdate={setUpdatedText} />
+      <OutputComponent text={text} />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
